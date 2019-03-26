@@ -25,10 +25,16 @@
 
 .banner {
   background: url('../images/family.jpg') center center no-repeat;
+  width: 700;
+  height: 600;
   /* background-blend-mode: lighten; */
   background-size: cover;
   /* padding-top:250px; */
-  margin-bottom:50px
+  background-position-y: center;
+
+  margin-bottom:50px;
+  margin-top:50px;
+  opacity:.5;
 }
 .display-4 {
   color:grey;
