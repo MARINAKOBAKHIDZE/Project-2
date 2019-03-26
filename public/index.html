@@ -31,30 +31,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="#">Create An Account</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Account Statement</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Transactions
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Deposit</a>
-                        <a class="dropdown-item" href="#">Withdrawal</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Placeholder</a>
-                    </div>
-                </li>
-                <li class="nav-item ">
-                    <span class="login"><a class="nav-link" href="#">Login</a></span>
-                </li>
+
 
             </ul>
 
@@ -63,51 +46,108 @@
 
     <div class="container-fluid text-center">
         <div class="row content banner">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Welcome back</h1>
-                    <p class="lead">Check your transactions and all of your activity here</p>
-                </div>
-            </div>
+
         </div>
 
     </div>
 
-    <div class="container-fluid text-center">
-        <div class="row">
-            <div class="col">
-                <div class="profile">
-                    Name
+    <span class="container text-center createAccount">
+        <form class="container needs-validation" novalidate>
+            <h1>Create a new account</h1>
+            <div class="form-row">
+
+                <!-- First Name Input -->
+                <div class="col-md-4 mb-4">
+                    <label for="validationCustom01">First name</label>
+                    <input type="text" class="form-control inputRowOne" id="firstNameInput" placeholder="First name"
+                        value="Mark" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <!-- Last Name Input -->
+                <div class="col-md-4 mb-4">
+                    <label for="validationCustom02">Last name</label>
+                    <input type="text" class="form-control inputRowOne" id="lastNameInput" placeholder="Last name"
+                        value="Otto" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <!-- Username Input -->
+                <div class="col-md-4 mb-4">
+                    <label for="validationCustom02">Username</label>
+                    <input type="text" class="form-control inputRowOne" id="usernameInput" placeholder="Last name"
+                        value="M-Otto10" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="row">
-                    <div class="abcd acc-num">
-                        Account Number
-                    </div>
-                    <div class="abcd balance">
-                        Balance
-                    </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="emailInput" placeholder="Email">
                 </div>
 
-                <div class="row">
-                    <div class="transactions">
-                        Previous Transactions
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="addressInput" placeholder="1234 Main St">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="cityInput">
                     </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="StateInput" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="ZipInput">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+
                 </div>
 
             </div>
-        </div>
+            <button class="btn btn-primary" id="createAccountButton"type="submit">Create Account</button>
+        </form>
 
-    </div>
+    </span>
 
+<script>
+var firstNameInput, lastNameInput, emailInput, addressInput, cityInput, stateInput, zipInput;
 
-    <div class="container-fluid text-center">
-        <a class="button" href="">
-            <div class="logout">LOGOUT</div>
-        </a>
-    </div>
+firstNameInput = $("#firstNameInput").val();
+lastNameInput = $("#lastNameInput").val();
+emailInput = $("#emailInput").val();
+addressInput = $("#addressInput").val();
+stateInput = $("#stateInput").val();
+zipInput = $("#zipInput").val();
 
+$("#createAccountButton").click(function() {
+    $.post("/api/users")
+    // on success, run this callback
+    .then(function(data) {
+      // log the data we found
+      console.log(data);
+      // tell the user we're adding a character with an alert window
+      alert("Adding character...");
+    });
+})
+</script>
 
 </body>
 
