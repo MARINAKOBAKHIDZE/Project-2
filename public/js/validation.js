@@ -125,7 +125,7 @@ $(document).ready(function () {
     $("#accountDistribution").hide();
 
     // Disable the submit button
-    $("#submit").prop('disabled', true);
+    // $("#submit").prop('disabled', true);
 
     // Only allow letters and white spaces for name input fields
     $(".nameInput").keypress(function(event){
