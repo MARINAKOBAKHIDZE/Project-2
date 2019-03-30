@@ -5,16 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project2</title>
+    <title>Online Banking</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Google Fonts API -->
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- Flatpickr - Node Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Font Awesome API -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- jQuery Links -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS File -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
@@ -22,25 +42,27 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">Our Bank</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-university fa-2x"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create An Account</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create An Account</a>
+                    </li>
 
 
-            </ul>
+                </ul>
 
+            </div>
         </div>
     </nav>
 
@@ -51,103 +73,169 @@
 
     </div>
 
-    <span class="container text-center createAccount">
-        <form class="container needs-validation" novalidate>
-            <h1>Create a new account</h1>
-            <div class="form-row">
+    <div class="container">
+        <section class="registration py-5" id="registration">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-4 py-5 bg-primary text-white text-center ">
+                        <div class=" ">
+                            <div class="card-body">
+                                <i class="fas fa-university fa-5x"></i>
+                                <h2 class="py-3">Registration</h2>
+                                <p>Thank you for choosing to bank with us! As our customer, you will have access to
+                                    great benefits that our competitors only dream of offering.
 
-                <!-- First Name Input -->
-                <div class="col-md-4 mb-4">
-                    <label for="validationCustom01">First name</label>
-                    <input type="text" class="form-control inputRowOne" id="firstNameInput" placeholder="First name"
-                        value="Mark" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                                    <br><br>
+                                    Don't worry, we won't enslave you in debt (a lot).
+
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-8 py-5 border">
+                        <h4 class="pb-4">Please provide your personal details</h4>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input id="First Name" name="First Name" placeholder="First Name"
+                                        class="form-control" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input id="Last Name" name="Last Name" placeholder="Last Name" class="form-control"
+                                        type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                </div>
+                                <!-- <div class="form-group col-md-6">
+                                    <input type="username" class="form-control" id="inputEmail4" placeholder="Username">
+                                </div> -->
+                                <div class="form-group col-md-6 mb-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="validationCustomUsername"
+                                            placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="Street Address" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <div class="col-md-4 mb-3">
+                                    <input type="text" class="form-control" id="validationCustom03"
+                                        placeholder="Address Line 2" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <input type="text" class="form-control" id="validationCustom03" placeholder="City"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-2 mb-3">
+                                    <input type="text" class="form-control" id="validationCustom04" placeholder="State"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <input type="text" class="form-control" id="validationCustom05" placeholder="Zip"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid zip.
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Last Name Input -->
-                <div class="col-md-4 mb-4">
-                    <label for="validationCustom02">Last name</label>
-                    <input type="text" class="form-control inputRowOne" id="lastNameInput" placeholder="Last name"
-                        value="Otto" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
 
-                <!-- Username Input -->
-                <div class="col-md-4 mb-4">
-                    <label for="validationCustom02">Username</label>
-                    <input type="text" class="form-control inputRowOne" id="usernameInput" placeholder="Last name"
-                        value="M-Otto10" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                            <div class="form-group form-row">
+                                <div class="col-md-4 pb-4" id="u22">
+                                    <label class="pb-2" for="SSN">Social Security Number</label>
+                                    <input class="form-control ssn" type="text" value="" data-label="ssn1"
+                                        maxlength="11" placeholder="___-__-____">
+                                </div>
+                                <div class="col-md-3 pb-4">
+                                    <label class="pb-2" for="DOB">Date of Birth</label>
+                                    <input class="form-control" type="text" id="datePicker" placeholder="MM/DD/YYYY"
+                                        data-input />
+                                </div>
+                            </div>
+
+                            <h4 class="pb-4">Banking Information</h4>
+                            <div class="form-group form-row">
+                                <div class="col-md-4">
+                                    <label class="pb-2" for="Deposit">Initial Deposit</label>
+                                    <input class="form-control" type="text" name="currency-field" id="currency-field"
+                                        pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                        placeholder="$10,000.00" />
+                                </div>
+                                <div id="accountTypes">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="checking" value="CHK">
+                                        <label class="form-check-label" for="checking">CHECKING</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="savings" value="SAV">
+                                        <label class="form-check-label" for="savings">SAVINGS</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="brokerage" value="BROKERAGE"
+                                            disabled>
+                                        <label class="form-check-label" for="brokerage">BROKERAGE (INVITE ONLY)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="float-right btn btn-primary">Submit</button>
+
+                        </form>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>
 
+    <script>
+        var firstNameInput, lastNameInput, emailInput, addressInput, cityInput, stateInput, zipInput;
 
-            <div class="form-row">
+        firstNameInput = $("#firstNameInput").val();
+        lastNameInput = $("#lastNameInput").val();
+        emailInput = $("#emailInput").val();
+        addressInput = $("#addressInput").val();
+        stateInput = $("#stateInput").val();
+        zipInput = $("#zipInput").val();
 
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="emailInput" placeholder="Email">
-                </div>
+        $("#createAccountButton").click(function () {
+            $.post("/api/users")
+                // on success, run this callback
+                .then(function (data) {
+                    // log the data we found
+                    console.log(data);
+                    // tell the user we're adding a character with an alert window
+                    alert("Adding character...");
+                });
+        })
+    </script>
 
-                <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="addressInput" placeholder="1234 Main St">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="cityInput">
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="StateInput" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-2">
-                        <label for="ZipInput">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-
-                </div>
-
-            </div>
-            <button class="btn btn-primary" id="createAccountButton"type="submit">Create Account</button>
-        </form>
-
-    </span>
-
-<script>
-var firstNameInput, lastNameInput, emailInput, addressInput, cityInput, stateInput, zipInput;
-
-firstNameInput = $("#firstNameInput").val();
-lastNameInput = $("#lastNameInput").val();
-emailInput = $("#emailInput").val();
-addressInput = $("#addressInput").val();
-stateInput = $("#stateInput").val();
-zipInput = $("#zipInput").val();
-
-$("#createAccountButton").click(function() {
-    $.post("/api/users")
-    // on success, run this callback
-    .then(function(data) {
-      // log the data we found
-      console.log(data);
-      // tell the user we're adding a character with an alert window
-      alert("Adding character...");
-    });
-})
-</script>
+    <script src="/js/validation.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/jasvascript"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script> -->
 
 </body>
 
