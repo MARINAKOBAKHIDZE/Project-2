@@ -215,7 +215,7 @@ $('.DOB').change(function () {
 
     else{
         $("#invalidDateFormat").hide();
-        $(this).removeClass('form-error')
+        $(this).removeClass('form-error');
     }
 });
 
