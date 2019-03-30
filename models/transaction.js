@@ -6,9 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       fromUser: {type:DataTypes.STRING, allowNull:false},
       toUser: {type:DataTypes.STRING, allowNull:false},
       amount: {type:DataTypes.DECIMAL(10,2), allowNull:false},
-      endingBalance: {type:DataTypes.DECIMAL(10,2), allowNull:false},
-      userId: DataTypes.INTEGER
-  
+      endingBalance: {type:DataTypes.DECIMAL(10,2), allowNull:false}  
     });
 
     Transaction.associate = function(models) {
