@@ -148,3 +148,16 @@ body {
 .inputRowOne {
   width: 100%;
 }
+
+.form-error{
+  border: 2px solid red;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.form-error::-webkit-input-placeholder{
+  color: red;
+}

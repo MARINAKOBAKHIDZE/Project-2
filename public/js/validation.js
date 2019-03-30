@@ -17,22 +17,22 @@ function isInteger(s) {
 
 // format SSN 
 $('input.ssn').on('keyup', function () {
-    var val = this.value.replace(/[^\d\*]/g, '').replace(/\d/g, '*');
+    var val = this.value.replace(/\D/g, '');
     var newVal = '';
-    var sizes = [3, 2, 4];
-    var maxSize = 10;
-
-    for (var i in sizes) {
-        if (val.length > sizes[i]) {
-            newVal += val.substr(0, sizes[i]) + '-';
-            val = val.substr(sizes[i]);
-        } else {
-            break;
-        }
+    if(val.length > 4) {
+       this.value = val;
     }
-
-    newVal += val;
-    this.value = newVal;
+    if((val.length > 3) && (val.length < 6)) {
+       newVal += val.substr(0, 3) + '-';
+       val = val.substr(3);
+    }
+    if (val.length > 5) {
+       newVal += val.substr(0, 3) + '-';
+       newVal += val.substr(3, 2) + '-';
+       val = val.substr(5);
+     }
+     newVal += val;
+     this.value = newVal.substring(0, 11);
 });
 
 // Currency Formatter
@@ -124,6 +124,47 @@ $(document).ready(function () {
     // Hide account distribtuion unless both checkboxes are selected
     $("#accountDistribution").hide();
 
+    // Disable the submit button
+    $("#submit").prop('disabled', true);
+
+    // Only allow letters and white spaces for name input fields
+    $(".nameInput").keypress(function(event){
+        var inputValue = event.which;
+        // allow letters and whitespaces only.
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) { 
+            event.preventDefault(); 
+        }
+    });
+});
+
+// Validating Name Input
+$('.nameInput').focusout(function () {
+
+    // Validates if the current input form has an empty space
+    if ($(this).val() === ''){
+        $(this).addClass('form-error');
+        $(this).attr("placeholder", "This field is required");
+    }
+    else{
+        $(this).removeClass('form-error');
+    }
+});
+
+// E-Mail Validation on Focusout
+$('#emailInput').focusout(function () {
+    $('#emailInput').each(function (e) {
+        email_address = $(this);
+        email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+        if (!email_regex.test(email_address.val())) {
+            $('#emailInput').addClass('form-error');
+            $(this).attr("placeholder", "This field is required");
+            return false;
+        }
+        else{
+            $('#emailInput').removeClass('form-error');
+            return true;
+        }
+    });
 });
 
 // Ensuring numberic id's prevent letters and special characters
@@ -131,29 +172,63 @@ $('.numeric').on('input blur paste', function () {
     $(this).val($(this).val().replace(/\D/g, ''))
 })
 
+// Validating SSN
+$("#SSNinput").focusout(function (){
+    var SSNlength = ($(this).val().length);
+    console.log(SSNlength);
+
+    if (SSNlength < 11){
+        $(this).addClass('form-error');
+        $("#invalidSSN").hide();
+        
+        if ($("#invalidSSN:not(:visible)")){
+            $(this).after("<p id='invalidSSN' style='color:red; padding-top: 5px;'>Invalid SSN<p>");
+        }
+        else{
+            $("#invalidSSN").hide();
+        }
+    }
+    else{
+        $(this).removeClass('form-error');
+        $("#invalidSSN").hide();
+    }
+});
+
 // Validating DOB
 $('.DOB').mask("99/99/9999");
 $('.DOB').change(function () {
 
     if ($(this).val().substring(0, 2) > 12 || $(this).val().substring(0, 2) == "00") {
-        alert("Iregular Month Format");
+        $(this).addClass('form-error');
+        $(this).after("<p id='invalidDateFormat' style='color:red; padding-top: 5px;'>Invalid Date Format<p>");
+        // Hides the age error paragraph in case it is visible
+        $("#applicantAgeError").hide();
         return false;
     }
     if ($(this).val().substring(3, 5) > 31 || $(this).val().substring(0, 2) == "00") {
-        alert("Iregular Date Format");
+        $(this).addClass('form-error');
+        $(this).after("<p id='invalidDateFormat' style='color:red; padding-top: 5px;'>Invalid Date Format<p>");
+        // Hides the age error paragraph in case it is visible
+        $("#applicantAgeError").hide();
         return false;
+    }
+
+    else{
+        $("#invalidDateFormat").hide();
+        $(this).removeClass('form-error')
     }
 });
 
 // Checking the age of the applicant via MomentJS
-$('.DOB').focusout(function(){
+$('.DOB').focusout(function () {
     var dob = $("#datePicker").val();
     var format = moment(dob, "MM-DD-YYYY");
     var age = moment().diff(format, 'years');
     console.log(age);
 
-    if(age<=18){
-        console.log("Applicant is not old enough to open a bank account");
+    if (age <= 18) {
+        $(this).addClass('form-error');
+        $(this).after("<p id='applicantAgeError' style='color:red; padding-top: 5px;'>Applicant must be at least 18</p>");
     }
 });
 
@@ -168,7 +243,7 @@ $("#checking-checkbox, #savings-checkbox").click(function () {
 
 // Allowing only numbers and decimal points for currenct
 $(function () {
-    $("input[id*='currency-field']").keydown(function (event) {
+    $("input[class*='currency-field']").keydown(function (event) {
 
         if (event.shiftKey == true) {
             event.preventDefault();
@@ -184,4 +259,23 @@ $(function () {
             event.preventDefault();
 
     });
+});
+
+// Validating the minimum deposit to be $25
+$('#initialDeposit').focusout(function () {
+
+    // Obtain the value from the input field and replace the dollar sign
+    var amount = $("#initialDeposit").val().replace("$", "");
+
+    // Parse the value to a number with decimals
+    var int = parseFloat(amount, 10);
+
+    // Compare if the amount is less than $25.00
+    if ($('#initialDeposit').val() == '' || int < 25) {
+        $('#initialDeposit').addClass('form-error');
+        console.log("The amount cannot be less than 25")
+    }
+    else{
+        $('#initialDeposit').removeClass('form-error');
+    }
 });
