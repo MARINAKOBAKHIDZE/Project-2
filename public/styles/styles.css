@@ -59,6 +59,7 @@ body {
 }
 
 .banner {
+  margin-top: -100px;
   background: url('../images/family.jpg') center center no-repeat;
   height: 700px;
   background-position: 50% 20%;
@@ -95,7 +96,6 @@ body {
   height: 125px;
   width: 200px;
   background-color: white;
-  ;
   box-shadow: 1px 4px 20px #888888;
   margin: auto;
   color: black;
