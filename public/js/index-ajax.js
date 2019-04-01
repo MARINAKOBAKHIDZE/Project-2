@@ -15,10 +15,16 @@ $(document).ready(function () {
   var initialDepositInput = $("#initialDeposit");
   var CHKcheckbox = $("#checking-checkbox");
   var SAVcheckbox = $("#savings-checkbox");
+  var CHKamount = $("#checking-amount");
+  var SAVamount = $("#savings-amount");
 
   // Declaring a create user function
   function createUser(userData){
     $.post("/api/users", userData).then(getUsers);
+  }
+  // Creates the users accounts
+  function createAccount(accountData){
+    $.post("/api/accounts", accountData).then(getAccounts);
   }
   
   function getUsers() {
@@ -45,6 +51,21 @@ $(document).ready(function () {
       SSN: SSNinput.val(),
       DOB: DOBinput.val(),
     });
+
+    // if (CHKcheckbox.val() === true && SAVcheckbox.val() === false ) {
+      createAccount({
+        checking: CHKcheckbox.val(),
+        savings: SAVcheckbox.val(),
+        initialDeposit: initialDepositInput.val()
+        
+      });
+    // }
+    // createAccount({
+    //   checking: CHKcheckbox.val(),
+    //   savings: SAVcheckbox.val(),
+    //   initialDeposit: initialDepositInput.val()
+      
+    // });
   }
 
   // Add event listeners to the submit and delete buttons

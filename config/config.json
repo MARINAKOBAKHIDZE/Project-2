@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "",
     "database": "onlineBanking",
     "host": "localhost",
     "dialect": "mysql"
