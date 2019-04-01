@@ -51,10 +51,4 @@ $(document).ready(function () {
 
   $(document).on("click", "#createAcctButton", handleFormSubmit);
 
-  // Enables a basic date picker for DOB
-  $("#datePicker").flatpickr({
-    enableTime: true,
-    dateFormat: "F, d Y H:i"
-  });
-
 }); // end of document.ready
