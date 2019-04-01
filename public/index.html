@@ -27,13 +27,12 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- jQuery Links -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="js/vendor/jquery-masked-input.js" type="text/javascript"></script>
+    
 
     <!-- MomentJS -->
     <script src="js/vendor/moment.js" type="text/javascript"></script>
@@ -119,7 +118,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroupPrepend">@</span>
                                         </div>
-                                        <input type="text" class="form-control" id="validationCustomUsername"
+                                        <input type="text" class="form-control" id="usernameInput"
                                             placeholder="Username" aria-describedby="inputGroupPrepend" required>
                                         <div class="invalid-feedback">
                                             Please choose a username.
@@ -129,7 +128,7 @@
                             </div>
                             <div class="form-group form-row">
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" id="addressLine1"
+                                    <input type="text" class="form-control" id="addressLine1Input"
                                         placeholder="Street Address" required>
                                     <div class="invalid-feedback">
                                         Please provide a valid city.
@@ -138,7 +137,7 @@
                             </div>
                             <div class="form-group form-row">
                                 <div class="col-md-4 mb-3">
-                                    <input type="text" class="form-control" id="addressLine2"
+                                    <input type="text" class="form-control" id="addressLine2Input"
                                         placeholder="Address Line 2" required>
                                     <div class="invalid-feedback">
                                         Please provide a valid unit number.
@@ -176,7 +175,7 @@
                                 </div>
                                 <div class="col-md-3 pb-4">
                                     <label class="pb-2" for="DOB">Date of Birth</label>
-                                    <input class="form-control numeric DOB" type="text" maxlength="8" id="datePicker" placeholder="MM/DD/YYYY"
+                                    <input class="form-control numeric DOB" type="text" maxlength="8" id="DOBinput" placeholder="MM/DD/YYYY"
                                         data-input />
                                 </div>
                             </div>
@@ -227,7 +226,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" id="submit" class="float-right btn btn-primary">Submit</button>
+                            <button type="button" id="createAcctButton" class="float-right btn btn-primary">Submit</button>
 
                         </form>
                     </div>
@@ -235,28 +234,6 @@
             </div>
         </section>
     </div>
-
-    <script>
-        var firstNameInput, lastNameInput, emailInput, addressInput, cityInput, stateInput, zipInput;
-
-        firstNameInput = $("#firstNameInput").val();
-        lastNameInput = $("#lastNameInput").val();
-        emailInput = $("#emailInput").val();
-        addressInput = $("#addressInput").val();
-        stateInput = $("#stateInput").val();
-        zipInput = $("#zipInput").val();
-
-        $("#createAccountButton").click(function () {
-            $.post("/api/users")
-                // on success, run this callback
-                .then(function (data) {
-                    // log the data we found
-                    console.log(data);
-                    // tell the user we're adding a character with an alert window
-                    alert("Adding character...");
-                });
-        })
-    </script>
 
     <script src="js/index-ajax.js" type="text/javascript"></script>
     <script src="js/validation.js" type="text/javascript"></script>
