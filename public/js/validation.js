@@ -176,6 +176,7 @@ $('.numeric').on('input blur paste', function () {
 $("#SSNinput").focusout(function (){
     var SSNlength = ($(this).val().length);
     console.log(SSNlength);
+    console.log($(this).val());
 
     if (SSNlength < 11){
         $(this).addClass('form-error');
@@ -195,7 +196,7 @@ $("#SSNinput").focusout(function (){
 });
 
 // Validating DOB
-$('.DOB').mask("99/99/9999");
+$('.DOB').mask("99-99-9999");
 $('.DOB').change(function () {
 
     if ($(this).val().substring(0, 2) > 12 || $(this).val().substring(0, 2) == "00") {
@@ -221,14 +222,19 @@ $('.DOB').change(function () {
 
 // Checking the age of the applicant via MomentJS
 $('.DOB').focusout(function () {
-    var dob = $("#datePicker").val();
+    var dob = $("#DOBinput").val();
     var format = moment(dob, "MM-DD-YYYY");
     var age = moment().diff(format, 'years');
+    console.log(dob);
     console.log(age);
 
     if (age <= 18) {
         $(this).addClass('form-error');
         $(this).after("<p id='applicantAgeError' style='color:red; padding-top: 5px;'>Applicant must be at least 18</p>");
+    }
+    else{
+        $(this).removeClass('form-error');
+        $('#applicantAgeError').hide();
     }
 });
 
@@ -265,13 +271,13 @@ $(function () {
 $('#initialDeposit').focusout(function () {
 
     // Obtain the value from the input field and replace the dollar sign
-    var amount = $("#initialDeposit").val().replace("$", "");
+    var amount = $("#initialDeposit").val().replace(/[$,]/g,"");
 
     // Parse the value to a number with decimals
     var int = parseFloat(amount, 10);
 
     // Compare if the amount is less than $25.00
-    if ($('#initialDeposit').val() == '' || int < 25) {
+    if ($('#initialDeposit').val() == '' || int < 25.00) {
         $('#initialDeposit').addClass('form-error');
         console.log("The amount cannot be less than 25")
     }
