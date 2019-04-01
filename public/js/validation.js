@@ -241,9 +241,11 @@ $('.DOB').focusout(function () {
 // Ensuring both checkboxes are checked before showing the distribution div
 $("#checking-checkbox, #savings-checkbox").click(function () {
     if ($("#checking-checkbox").is(':checked') == true && $("#savings-checkbox").is(':checked') == true) {
-        $("#accountDistribution").show(5000);
+        $("#accountDistribution").show();
+        $("#initialDeposit").prop('disabled', true);
     } else {
-        $("#accountDistribution").hide(5000);
+        $("#accountDistribution").hide();
+        $("#initialDeposit").prop('disabled', false);
     }
 });
 
