@@ -3,7 +3,7 @@ body {
   font-family: 'Exo', sans-serif;
 }
 
-.navbar{
+.navbar {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
@@ -33,7 +33,7 @@ body {
   margin-bottom: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   background-color: white;
   color: black !important;
   border-radius: 5px;
@@ -121,19 +121,19 @@ body {
   max-width: 600px;
 }
 
-#registration{
+#registration {
   margin-top: -200px;
 }
 
-#login{
+#login {
   margin-top: 100px;
 }
 
-.border{
+.border {
   background-color: white;
 }
 
-.border .form-control, .input-group-text, .btn{
+.border .form-control, .input-group-text, .btn {
   border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -moz-border-radius: 0px !important;
@@ -141,11 +141,11 @@ body {
   -o-border-radius: 0px !important;
 }
 
-.border h4{
+.border h4 {
   font-size: 22px;
 }
 
-#accountTypes{
+#accountTypes {
   padding-top: 33px;
 }
 
@@ -153,7 +153,7 @@ body {
   width: 100%;
 }
 
-.form-error{
+.form-error {
   border: 2px solid red;
   transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -162,6 +162,62 @@ body {
   -o-transition: 0.5s;
 }
 
-.form-error::-webkit-input-placeholder{
+.form-error::-webkit-input-placeholder {
   color: red;
+}
+
+/* ======= Dashboard ======= */
+
+#main-dashboard {
+  margin-top: 50px;
+  padding: 25px;
+}
+
+#main-dashboard h1 {
+  font-size: 24px;
+}
+
+#account-overview {
+  margin-top: 50px;
+  padding: 25px;
+  min-height: 200px;
+  background-color: white;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.accounts{
+  min-height: 150px;
+  margin-top: 20px;
+  padding: 10px;
+  -moz-box-shadow: 0 0 3px #ccc;
+  -webkit-box-shadow: 0 0 3px #ccc;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.accounts h1{
+  color: #007bff;
+}
+.accounts p{
+  font-size: 26px;
+}
+
+/* ======= 404 Page ======= */
+
+#not-found {
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  padding: 30px;
+  text-align: center;
+}
+
+#not-found h1{
+  font-size: 85px;
+  font-weight: 900;
+}
+
+#not-found p{
+  font-size: 65px;
 }
