@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         city: {type:DataTypes.STRING, allowNull:false},
         state: {type:DataTypes.STRING, allowNull:false},
         zip: {type:DataTypes.INTEGER, allowNull:false},
-        SSN:{type:DataTypes.TEXT, allowNull: false},
+        SSN:{type:DataTypes.STRING, allowNull: false},
         DOB: {type:DataTypes.STRING, allowNull:false},
         email: {type:DataTypes.STRING, allowNull:false},
         username: {type:DataTypes.STRING, allowNull:false},
