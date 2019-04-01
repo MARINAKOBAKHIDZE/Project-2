@@ -28,8 +28,8 @@ module.exports = function (app) {
    addressLine2: req.body.addressLine2,
    city: req.body.city,
    state: req.body.state,
-   zip: req.body.zipCode,
-   SSN: req.body.SNN,
+   zip: req.body.zip,
+   SSN: req.body.SSN,
    DOB: req.body.DOB,
    email: req.body.email,
    username: req.body.username
