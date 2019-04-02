@@ -68,7 +68,7 @@
     <div class="container">
 
         <div id="main-dashboard">
-            <h1>Welcome {{name}}</h1>
+            <h1>Welcome {{{name}}}</h1>
 
             <div class="col-md-12" id="account-overview">
                 <h1>Your Accounts:</h1>
@@ -78,7 +78,7 @@
                 <div class="col-md-12 accounts">
                     <h1>Checking</h1>
 
-                    <p class="mt-4 mb-4">$20,000.00</p>
+                    <p class="mt-4 mb-4">{{{amount}}}</p>
                     <button class="btn btn-primary">
                         Withdraw
                     </button>
@@ -90,7 +90,7 @@
                 <div class="col-md-12 accounts">
                     <h1>Savings</h1>
 
-                    <p class="mt-4 mb-4">$75,350.00</p>
+                    <p class="mt-4 mb-4">N/A</p>
                     <button class="btn btn-primary">
                         Withdraw
                     </button>
@@ -112,24 +112,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Withdrawal</td>
-                                <td class="text-center">-$200.00</td>
-                                <td class="text-right">$22,240.00</td>
-                            </tr>
-                            <tr>
-                                <td>Transfer</td>
-                                <td class="text-center">-$1,240.00</td>
-                                <td class="text-right">$21,000.00</td>
-                            </tr>
-                            <tr>
-                                <td>Transfer</td>
-                                <td class="text-center">+$1,240.00</td>
-                                <td class="text-right">$75,350.00</td>
-                            </tr>
-                            <tr>
-                                <td>Withdrawal</td>
-                                <td class="text-center">$1,000.00</td>
-                                <td class="text-right">$20,000.00</td>
+                                <td>N/A</td>
+                                <td class="text-center">N/A</td>
+                                <td class="text-right">N/A</td>
                             </tr>
                         </tbody>
                     </table>

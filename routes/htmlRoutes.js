@@ -13,9 +13,14 @@ module.exports = function(app) {
 
   // Load Dashboard
   app.get("/dashboard", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Account.findOne({
+      where: {
+        id: 2
+      }
+    }).then(function(dbExamples) {
+      console.log(dbExamples.dataValues.balance);
       res.render("dashboard", {
-        msg: "Welcome!",
+        amount: dbExamples.dataValues.balance,
         examples: dbExamples
       });
     });

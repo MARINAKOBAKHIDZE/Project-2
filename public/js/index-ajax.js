@@ -71,5 +71,7 @@ $(document).ready(function () {
   // Add event listeners to the submit and delete buttons
 
   $(document).on("click", "#createAcctButton", handleFormSubmit);
-
+ 
 }); // end of document.ready
+
+$(document).on("click", "#createAcctButton", function() {window.location.href="/dashboard"});
