@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Bootcamp",
     "database": "onlineBanking",
     "host": "localhost",
     "dialect": "mysql"
